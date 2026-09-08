@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Fuel Restoration"
+description = "A responsive website for Fuel Restoration, a home-to-home used cooking oil collection service that turns waste oil into cleaner biodiesel and rewards contributors with digital appreciation certificates."
+version = "1.0.0"
+id = "artifacts/fuel-restoration"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21445
+
+[services.development]
+run = "pnpm --filter @workspace/fuel-restoration run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/fuel-restoration", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/fuel-restoration/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21445"
+BASE_PATH = "/"

@@ -1,0 +1,81 @@
+# Replit Build Prompt — "Fuel Restoration" Website
+
+Copy everything below into Replit (or your Replit AI Agent chat) to generate the site.
+
+---
+
+Build a complete, production-ready, fully functional website called **"Fuel Restoration"** for a startup that collects used cooking oil from households (home-to-home pickup) to reduce oil waste and resells it to biodiesel factories.
+
+## Tech Stack & Setup
+- Build it as a **React** application (Vite + React, functional components + hooks).
+- Fully compatible with **GitHub** (push directly to a connected GitHub repository) and deployable on **Vercel** with zero configuration changes.
+- Clean, logically organized folder structure: `/src/components`, `/src/pages`, `/src/assets`, `/src/data`, `/src/styles`. Include a proper `README.md`, `.gitignore`, and `package.json`.
+- No console errors, no broken imports, no missing dependencies — the app must run immediately with `npm install && npm run dev` and build cleanly with `npm run build`.
+- Fully responsive (mobile, tablet, desktop).
+
+## Visual Theme
+- **Sharp-edged design language**: no rounded corners, angular cards/buttons/sections, bold geometric dividers.
+- Dark/deep background (e.g., charcoal, deep green, or near-black) with **light-coloured text** (white / off-white / soft cream) for strong contrast.
+- Accent colour inspired by biodiesel/eco themes (amber-gold for oil, green for sustainability).
+- Modern sans-serif typography, generous whitespace, subtle hover/scroll animations (no rounded softness — keep it crisp and industrial).
+
+## Site Sections / Pages
+
+### 1. Hero Section
+- Site name "Fuel Restoration" prominently displayed with a tagline about turning waste cooking oil into clean energy.
+- Background imagery related to cooking oil recycling, biodiesel, and a greener earth (use free stock imagery, e.g., from Unsplash/Pexels placeholders).
+- Call-to-action button: "Get Your Oil Collected."
+
+### 2. About / Why It Matters
+- Short section explaining the problem: improper disposal of used cooking oil pollutes water and soil, and can be converted into clean biodiesel instead.
+- A few informative lines about the environmental and economic benefits of recycling used cooking oil (write 3–4 short, factual paragraphs/bullets).
+- Include 2–3 relevant images (used cooking oil, biodiesel production, greener earth/sustainability).
+
+### 3. Impact Stats
+- Highlight banner/stat cards showing: "1+ Year of Operation," "50,000+ Litres of Oil Collected," "Home-to-Home Collection Model."
+
+### 4. How It Works
+- Simple 3–4 step process: Register your oil → We schedule a pickup from your location → We collect it → You get rewarded with a certificate.
+
+### 5. Oil Collection Registration Form
+A proper form where users can submit their details to have their used cooking oil collected:
+- Full Name
+- Identity/ID Number (optional field, e.g., Aadhaar/ID for verification)
+- Location / Full Address
+- Contact Number
+- Email (optional)
+- Quantity of Oil (in litres)
+- Preferred Pickup Date
+- Preferred Pickup Time Slot
+- Additional Notes / Instructions
+- Submit button
+
+On successful submission, show a confirmation message on-screen (and/or toast notification):
+> "Your data has been received. Thank you for helping us reduce oil waste!"
+
+(Form can store submissions in local state/JSON for now, structured so it's easy to later connect to a real backend or database.)
+
+### 6. Rewards & Certificate Section
+- Explain that every contributor receives a **digital certificate of appreciation** for helping reduce oil waste.
+- Include a sample certificate design/preview (name placeholder, "Fuel Restoration" branding, litres contributed, date).
+- Mention that certificates are generated after pickup confirmation.
+
+### 7. Our Collector / Contact Section
+Display collector/contact details clearly:
+- **Collector Name:** Rahul Saini
+- **Area:** Ward Number 1, Sainipura
+- **Mobile:** 9728517836
+- Add a "Call Now" / "WhatsApp" quick-contact button.
+
+### 8. AI Chatbot Widget
+- Add a floating chatbot widget (bottom-right corner) branded for Fuel Restoration that can answer FAQs related to the business — e.g., what used cooking oil recycling is, how pickup works, what areas are covered, how certificates work, environmental benefits, etc.
+- Build it as a self-contained React chat component with a simple rule-based/FAQ response system (pre-loaded Q&A about the business) so it works out of the box without needing an external paid API key. Structure the code so an external AI API (OpenAI, Anthropic, or similar) can be swapped in later with minimal changes.
+
+### 9. Footer
+- Fuel Restoration logo/name, tagline, quick links (Home, About, Register, Contact), social icons (placeholders), collector contact info, and copyright line.
+
+## Additional Requirements
+- Use meaningful, reusable component names (Navbar, Hero, About, ImpactStats, HowItWorks, RegistrationForm, Rewards, ContactSection, Chatbot, Footer).
+- Include placeholder/free-to-use images related to used cooking oil, biodiesel, and a greener earth throughout the site.
+- Ensure form validation (required fields, valid phone number/quantity formats).
+- Make sure the entire codebase is error-free, well-commented, and ready to push directly to a GitHub repository and deploy on Vercel.
