@@ -17,15 +17,19 @@ app.use(
   pinoHttp({
     logger,
     serializers: {
-      // Explicitly typed serializer params to avoid implicit any errors
-      req: (req: Request & { id?: string }) => ({
-        id: (req as any).id,
-        method: req.method,
-        url: req.url?.split("?")[0],
-      }),
-      res: (res: Response) => ({
-        statusCode: res.statusCode,
-      }),
+      req(req: Request) {
+        return {
+          id: req.id,
+          method: req.method,
+          url: req.url?.split("?")[0],
+        };
+      },
+
+      res(res: Response) {
+        return {
+          statusCode: res.statusCode,
+        };
+      },
     },
   }),
 );
