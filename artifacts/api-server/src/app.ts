@@ -1,34 +1,32 @@
 import express, { type Express, type Request, type Response } from "express";
 import cors from "cors";
-import pinoHttp from "pino-http";
+import pinoHttpPkg from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
 
+// pino-http's types can vary depending on module interop. Normalize the import
+// so we can call it regardless of whether it's a default export or CommonJS.
+const pinoHttp = (pinoHttpPkg as any)?.default ?? (pinoHttpPkg as any);
+
 const app: Express = express();
 
-// pinoHttp's shipped types may not match the runtime in this environment.
-// Cast to `any` so we can call it and provide typed serializers below.
-const pinoHttpAny = pinoHttp as unknown as any;
-
 app.use(
-  pinoHttpAny({
+  pinoHttp({
     logger,
     serializers: {
-      req(req: Request & { id?: string }) {
-        return {
-          id: (req as any).id,
-          method: req.method,
-          url: req.url?.split("?")[0],
-        };
-      },
-      res(res: Response) {
-        return {
-          statusCode: res.statusCode,
-        };
-      },
+      // Explicitly type parameters to avoid implicit any errors during TS compile.
+      req: (req: Request & { id?: string }) => ({
+        id: (req as any).id,
+        method: req.method,
+        url: req.url?.split("?")[0],
+      }),
+      res: (res: Response) => ({
+        statusCode: res.statusCode,
+      }),
     },
   }),
 );
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
