@@ -1,4 +1,8 @@
-import express, { type Express, type Request, type Response } from "express";
+import express, {
+  type Express,
+  type Request,
+  type Response,
+} from "express";
 import cors from "cors";
 import pinoHttpPkg from "pino-http";
 import router from "./routes";
